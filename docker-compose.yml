@@ -1,16 +1,43 @@
 version: '3.7'
+
+volumes:
+  postgres_data:
+    driver: local
+
 services:
-  rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
-    ports:
-      - 5672:5672
-      - 15672:15672
+
+  games_db:
+    image: postgres
     volumes:
-      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-
-
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: games
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  keycloak_db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak_db
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+    ports:
+      - 8180:8180
+    depends_on:
+      - keycloak_db
 
 #  database:
 #    image: postgres:latest
