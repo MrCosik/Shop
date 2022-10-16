@@ -10,6 +10,7 @@
         <module name="Shop" />
         <module name="ConfigServer" />
         <module name="Eureka" />
+        <module name="GamesWs" />
         <module name="ApiGateway" />
         <module name="UserWs" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="ApiGateway" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="Eureka" options="-parameters" />
+      <module name="GamesWs" options="-parameters" />
       <module name="UserWs" options="-parameters" />
     </option>
   </component>
