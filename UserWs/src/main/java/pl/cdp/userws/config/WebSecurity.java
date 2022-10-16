@@ -32,9 +32,9 @@ public class WebSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/**").permitAll();
-//                .and()
-//                .addFilter(getAuthenticationFilter());
+//        http.antMatchers("/**").permitAll();
+////                .and()
+////                .addFilter(getAuthenticationFilter());
         return http.build();
     }
 

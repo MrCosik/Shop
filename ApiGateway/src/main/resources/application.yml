@@ -22,25 +22,23 @@ spring:
       lowerCaseServiceId: true
       routes:
         - id: users-ws
-          uri: lb://users-ws
+          uri: lb://users-ws/
           predicates:
-            - Path=/users-ws/users/
+            - Path=/users-ws/users/**
           filters:
             - RewritePath=/users-ws/(?<path>.*), /$\{path}
             - RemoveRequestHeader=Cookie, Set=Cookie
         - id: games-ws
-            uri: lb://games-ws
-            predicates:
-              - Path=/games-ws/
-            filters:
-              - RewritePath=/games-ws/(?<path>.*), /$\{path}
-              - RemoveRequestHeader=Cookie, Set=Cookie
-#            - TokenFilter
-#        - id: users-ws-login
-#          uri: lb://users-ws/
-#          predicates:
-#            - Path=/users-ws/users/login
-#            - Method=POST
-#          filters:
-#            - RemoveRequestHeader=Cookie
-#            - RewritePath=/users-ws/(?<segment>.*), /$\{segment}
+          uri: lb://games-ws
+          predicates:
+            - Path=/games-ws/**
+          filters:
+            - RewritePath=/games-ws/(?<path>.*), /$\{path}
+            - RemoveRequestHeader=Cookie, Set=Cookie
+        - id: orders-ws
+          uri: lb://orders-ws/
+          predicates:
+            - Path=/orders-ws/**
+          filters:
+            - RewritePath=/orders-ws/(?<path>.*), /$\{path}
+            - RemoveRequestHeader=Cookie, Set=Cookie

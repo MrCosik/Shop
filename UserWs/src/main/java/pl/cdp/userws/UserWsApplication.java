@@ -43,9 +43,7 @@ public class UserWsApplication {
             admin.getRoles().add(Role.builder().name(Roles.USER.name()).build());
             admin.getRoles().add(Role.builder().name(Roles.ADMIN.name()).build());
 
-
-            List<String> names = Arrays.asList("udara", "sampath");
-            names.forEach(name -> userRepository.saveAll(Arrays.asList(admin, user)));
+            userRepository.saveAll(Arrays.asList(admin, user));
         };
     }
 

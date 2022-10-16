@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/UserWs/pom.xml" />
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
         <option value="$PROJECT_DIR$/GamesWs/pom.xml" />
+        <option value="$PROJECT_DIR$/OrderWs/pom.xml" />
       </list>
     </option>
   </component>
