@@ -1,4 +1,4 @@
-package entity;
+package pl.cdp.orderws.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,4 +20,5 @@ public class OrderedGame {
     @GeneratedValue
     private Long id;
     private String gameId;
+
 }

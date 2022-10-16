@@ -2,6 +2,13 @@ server:
   port: 8013
 
 spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 15672
+    username: guest
+    exchange: user.exchange
+    routingkey: user.routingkey
   h2:
     console.enabled: true
   application:

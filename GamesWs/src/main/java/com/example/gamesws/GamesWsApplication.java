@@ -19,25 +19,4 @@ public class GamesWsApplication {
         SpringApplication.run(GamesWsApplication.class, args);
     }
 
-
-
-//    @Bean
-//    CommandLineRunner init (GameRepository gameRepository){
-//        return args -> {
-//            Game g1 = new Game();
-//            Game g2 = new Game();
-//
-//
-//            g1.setName("The Witcher 3: Wild Hunt");
-//            g1.setCopies(4);
-//            g1.setPrice(49.99);
-//
-//            g2.setName("Cyberpunk 2077");
-//            g2.setCopies(10);
-//            g2.setPrice(59.99);
-//
-//            gameRepository.saveAll(Arrays.asList(g1, g2));
-//        };
-//    }
-
 }

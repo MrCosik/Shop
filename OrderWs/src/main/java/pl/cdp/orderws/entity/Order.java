@@ -1,4 +1,4 @@
-package entity;
+package pl.cdp.orderws.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

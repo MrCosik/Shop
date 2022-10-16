@@ -1,6 +1,6 @@
-package repository;
+package pl.cdp.orderws.repository;
 
-import entity.Order;
+import pl.cdp.orderws.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

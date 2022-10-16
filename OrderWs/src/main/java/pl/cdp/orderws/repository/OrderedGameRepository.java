@@ -1,6 +1,6 @@
-package repository;
+package pl.cdp.orderws.repository;
 
-import entity.OrderedGame;
+import pl.cdp.orderws.entity.OrderedGame;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderedGameRepository extends JpaRepository<OrderedGame, Long> {
