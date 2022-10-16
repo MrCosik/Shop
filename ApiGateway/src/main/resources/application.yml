@@ -24,6 +24,16 @@ spring:
         - id: users-ws
           uri: lb://users-ws
           predicates:
-            - Path=/users-ws/**
+            - Path=/users-ws/users/hello
           filters:
             - RewritePath=/users-ws/(?<path>.*), /$\{path}
+            - RemoveRequestHeader=Cookie, Set=Cookie
+#            - TokenFilter
+#        - id: users-ws-login
+#          uri: lb://users-ws/
+#          predicates:
+#            - Path=/users-ws/users/login
+#            - Method=POST
+#          filters:
+#            - RemoveRequestHeader=Cookie
+#            - RewritePath=/users-ws/(?<segment>.*), /$\{segment}
