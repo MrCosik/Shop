@@ -1,0 +1,33 @@
+server:
+  port: 8013
+
+spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 15672
+    username: guest
+    exchange: user.exchange
+    routingkey: user.routingkey
+  h2:
+    console.enabled: true
+  application:
+    name: games-ws
+  datasource:
+    url: jdbc:h2:mem:gamesdb
+    #    todo: change it so it won't be public
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

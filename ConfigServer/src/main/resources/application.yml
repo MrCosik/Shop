@@ -1,0 +1,16 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MrCosik/ShopConfig
+          username: MrCosik
+          password: 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
+          clone-on-start: true
+          default-label: main

@@ -1,0 +1,29 @@
+version: '3.7'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  users_db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=users
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    networks:
+      backend:
+        aliases:
+          - "database_users"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+networks:
+  backend:
+    driver: bridge
