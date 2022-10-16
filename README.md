@@ -29,3 +29,17 @@ In works:
  
 
 To start docker containers navigate to Shop folder and open it in terminal. Execute command docker-compose up -d.
+
+
+Endpoints:
+  Get all games:
+  curl -XGET 'http://localhost:8090/games-ws/games'
+  
+  Get all orders:
+  curl -XGET 'http://localhost:8090/orders-ws/orders'
+  
+  Place an order: (this one doesn't work properly, it will send messages to another microservice infinitely):
+  curl -XPOST -H "Content-type: application/json" -d '{
+    "gamesIds":["1","2"]
+}' 'http://localhost:8090/games-ws/buy'
+
